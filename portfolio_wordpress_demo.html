@@ -1,0 +1,306 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Sharma Classes – Premier Coaching Institute, Lucknow</title>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400;700;900&family=DM+Sans:wght@300;400;500;600&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0B1F3A;
+    --gold: #C9972B;
+    --gold-light: #F5E6C3;
+    --cream: #FBF8F2;
+    --white: #FFFFFF;
+    --text: #1A1A2E;
+    --muted: #6B7280;
+    --border: #E5E0D6;
+  }
+  html { scroll-behavior: smooth; }
+  body { font-family: 'DM Sans', sans-serif; background: var(--white); color: var(--text); line-height: 1.6; }
+
+  /* NAV */
+  nav { position: sticky; top: 0; z-index: 100; background: var(--navy); padding: 0 5%; display: flex; align-items: center; justify-content: space-between; height: 68px; box-shadow: 0 2px 20px rgba(0,0,0,0.3); }
+  .nav-logo { font-family: 'Playfair Display', serif; font-size: 22px; font-weight: 700; color: var(--gold); letter-spacing: 0.02em; }
+  .nav-logo span { color: var(--white); }
+  .nav-links { display: flex; gap: 32px; list-style: none; }
+  .nav-links a { color: rgba(255,255,255,0.85); text-decoration: none; font-size: 14px; font-weight: 500; letter-spacing: 0.03em; transition: color 0.2s; }
+  .nav-links a:hover { color: var(--gold); }
+  .nav-cta { background: var(--gold); color: var(--navy); padding: 10px 22px; border-radius: 4px; font-size: 14px; font-weight: 600; text-decoration: none; transition: opacity 0.2s; }
+  .nav-cta:hover { opacity: 0.9; }
+
+  /* HERO */
+  .hero { background: var(--navy); padding: 90px 5% 80px; display: grid; grid-template-columns: 1fr 1fr; gap: 60px; align-items: center; min-height: 560px; position: relative; overflow: hidden; }
+  .hero::before { content: ''; position: absolute; right: -100px; top: -100px; width: 500px; height: 500px; border-radius: 50%; background: rgba(201,151,43,0.07); pointer-events: none; }
+  .hero-tag { display: inline-block; background: rgba(201,151,43,0.2); color: var(--gold); font-size: 12px; font-weight: 600; letter-spacing: 0.1em; text-transform: uppercase; padding: 6px 14px; border-radius: 20px; margin-bottom: 20px; }
+  .hero h1 { font-family: 'Playfair Display', serif; font-size: clamp(36px, 4vw, 54px); font-weight: 900; color: var(--white); line-height: 1.15; margin-bottom: 20px; }
+  .hero h1 em { color: var(--gold); font-style: normal; }
+  .hero-sub { color: rgba(255,255,255,0.7); font-size: 17px; line-height: 1.7; margin-bottom: 36px; max-width: 480px; }
+  .hero-btns { display: flex; gap: 14px; flex-wrap: wrap; }
+  .btn-primary { background: var(--gold); color: var(--navy); padding: 14px 30px; border-radius: 4px; font-weight: 600; font-size: 15px; text-decoration: none; transition: transform 0.15s; display: inline-block; }
+  .btn-primary:hover { transform: translateY(-2px); }
+  .btn-outline { border: 1.5px solid rgba(255,255,255,0.4); color: var(--white); padding: 14px 30px; border-radius: 4px; font-weight: 500; font-size: 15px; text-decoration: none; transition: border-color 0.2s; display: inline-block; }
+  .btn-outline:hover { border-color: var(--gold); color: var(--gold); }
+  .hero-stats { display: flex; flex-direction: column; gap: 20px; }
+  .stat-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,151,43,0.25); border-radius: 12px; padding: 24px 28px; }
+  .stat-card .num { font-family: 'Playfair Display', serif; font-size: 42px; font-weight: 700; color: var(--gold); line-height: 1; }
+  .stat-card .label { color: rgba(255,255,255,0.65); font-size: 14px; margin-top: 4px; }
+
+  /* NOTICE BAR */
+  .notice { background: var(--gold-light); border-left: 4px solid var(--gold); padding: 14px 5%; display: flex; align-items: center; gap: 12px; font-size: 14px; color: var(--navy); font-weight: 500; }
+  .notice-dot { width: 8px; height: 8px; border-radius: 50%; background: var(--gold); flex-shrink: 0; animation: pulse 1.5s infinite; }
+  @keyframes pulse { 0%,100%{opacity:1;} 50%{opacity:0.4;} }
+
+  /* SECTION COMMON */
+  section { padding: 80px 5%; }
+  .section-tag { font-size: 12px; font-weight: 600; text-transform: uppercase; letter-spacing: 0.12em; color: var(--gold); margin-bottom: 10px; }
+  .section-title { font-family: 'Playfair Display', serif; font-size: clamp(28px, 3vw, 40px); font-weight: 700; color: var(--navy); margin-bottom: 16px; line-height: 1.2; }
+  .section-sub { color: var(--muted); font-size: 16px; max-width: 560px; line-height: 1.7; margin-bottom: 48px; }
+  .section-header { margin-bottom: 48px; }
+
+  /* COURSES */
+  .courses-bg { background: var(--cream); }
+  .courses-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .course-card { background: var(--white); border-radius: 12px; overflow: hidden; border: 1px solid var(--border); transition: transform 0.2s, box-shadow 0.2s; }
+  .course-card:hover { transform: translateY(-4px); box-shadow: 0 16px 40px rgba(11,31,58,0.12); }
+  .course-top { padding: 28px 24px 20px; }
+  .course-icon { width: 48px; height: 48px; border-radius: 10px; background: var(--gold-light); display: flex; align-items: center; justify-content: center; margin-bottom: 16px; font-size: 22px; }
+  .course-name { font-family: 'Playfair Display', serif; font-size: 20px; font-weight: 700; color: var(--navy); margin-bottom: 8px; }
+  .course-desc { font-size: 14px; color: var(--muted); line-height: 1.6; }
+  .course-bottom { border-top: 1px solid var(--border); padding: 16px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .course-fee { font-size: 13px; color: var(--muted); }
+  .course-fee strong { color: var(--navy); font-size: 16px; }
+  .course-badge { background: var(--gold-light); color: #7A5500; font-size: 11px; font-weight: 600; padding: 4px 10px; border-radius: 20px; }
+
+  /* RESULTS */
+  .results-grid { display: grid; grid-template-columns: repeat(4, 1fr); gap: 20px; }
+  .result-box { text-align: center; padding: 32px 16px; border: 1px solid var(--border); border-radius: 12px; }
+  .result-num { font-family: 'Playfair Display', serif; font-size: 44px; font-weight: 900; color: var(--navy); line-height: 1; }
+  .result-num sup { font-size: 22px; vertical-align: super; color: var(--gold); }
+  .result-label { color: var(--muted); font-size: 14px; margin-top: 8px; }
+
+  /* TESTIMONIALS */
+  .testi-bg { background: var(--navy); }
+  .testi-bg .section-title { color: var(--white); }
+  .testi-bg .section-tag { color: var(--gold); }
+  .testi-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 24px; }
+  .testi-card { background: rgba(255,255,255,0.06); border: 1px solid rgba(201,151,43,0.2); border-radius: 12px; padding: 28px; }
+  .testi-quote { font-size: 15px; color: rgba(255,255,255,0.8); line-height: 1.7; margin-bottom: 20px; font-style: italic; }
+  .testi-author { display: flex; align-items: center; gap: 12px; }
+  .testi-avatar { width: 40px; height: 40px; border-radius: 50%; background: var(--gold); display: flex; align-items: center; justify-content: center; font-weight: 700; color: var(--navy); font-size: 15px; }
+  .testi-name { color: var(--white); font-weight: 600; font-size: 14px; }
+  .testi-sub { color: rgba(255,255,255,0.5); font-size: 12px; }
+  .stars { color: var(--gold); font-size: 13px; letter-spacing: 1px; margin-bottom: 14px; }
+
+  /* FACULTY */
+  .faculty-grid { display: grid; grid-template-columns: repeat(3, 1fr); gap: 28px; }
+  .faculty-card { text-align: center; }
+  .faculty-img { width: 100px; height: 100px; border-radius: 50%; background: linear-gradient(135deg, var(--gold-light), var(--border)); margin: 0 auto 16px; display: flex; align-items: center; justify-content: center; font-family: 'Playfair Display', serif; font-size: 32px; font-weight: 700; color: var(--navy); border: 3px solid var(--gold); }
+  .faculty-name { font-family: 'Playfair Display', serif; font-size: 18px; font-weight: 700; color: var(--navy); }
+  .faculty-role { color: var(--gold); font-size: 13px; font-weight: 500; margin-top: 4px; }
+  .faculty-exp { color: var(--muted); font-size: 13px; margin-top: 8px; }
+
+  /* CTA SECTION */
+  .cta-section { background: var(--gold); text-align: center; padding: 70px 5%; }
+  .cta-section h2 { font-family: 'Playfair Display', serif; font-size: 36px; color: var(--navy); font-weight: 900; margin-bottom: 12px; }
+  .cta-section p { color: rgba(11,31,58,0.75); font-size: 17px; margin-bottom: 32px; }
+  .btn-dark { background: var(--navy); color: var(--white); padding: 16px 36px; border-radius: 4px; font-weight: 600; font-size: 16px; text-decoration: none; display: inline-block; transition: opacity 0.2s; }
+  .btn-dark:hover { opacity: 0.88; }
+
+  /* FOOTER */
+  footer { background: #060F1D; color: rgba(255,255,255,0.6); padding: 50px 5% 30px; }
+  .footer-grid { display: grid; grid-template-columns: 2fr 1fr 1fr; gap: 48px; margin-bottom: 36px; }
+  .footer-brand { font-family: 'Playfair Display', serif; font-size: 22px; color: var(--gold); margin-bottom: 12px; }
+  .footer-tagline { font-size: 14px; line-height: 1.7; }
+  .footer-col h4 { color: var(--white); font-size: 14px; font-weight: 600; letter-spacing: 0.05em; margin-bottom: 16px; }
+  .footer-col ul { list-style: none; display: flex; flex-direction: column; gap: 10px; }
+  .footer-col a { color: rgba(255,255,255,0.55); text-decoration: none; font-size: 14px; transition: color 0.2s; }
+  .footer-col a:hover { color: var(--gold); }
+  .footer-bottom { border-top: 1px solid rgba(255,255,255,0.1); padding-top: 24px; font-size: 13px; display: flex; justify-content: space-between; }
+
+  /* WATERMARK */
+  .portfolio-badge { position: fixed; bottom: 20px; right: 20px; background: var(--navy); color: var(--white); font-size: 11px; padding: 8px 14px; border-radius: 20px; border: 1px solid var(--gold); z-index: 999; font-family: 'DM Sans', sans-serif; }
+  .portfolio-badge span { color: var(--gold); font-weight: 600; }
+</style>
+</head>
+<body>
+
+<div class="portfolio-badge">Portfolio sample by <span>Shivam</span></div>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Sharma<span> Classes</span></div>
+  <ul class="nav-links">
+    <li><a href="#courses">Courses</a></li>
+    <li><a href="#results">Results</a></li>
+    <li><a href="#faculty">Faculty</a></li>
+    <li><a href="#contact">Contact</a></li>
+  </ul>
+  <a href="#contact" class="nav-cta">Enroll Now</a>
+</nav>
+
+<!-- NOTICE -->
+<div class="notice">
+  <div class="notice-dot"></div>
+  Admissions open for JEE / NEET 2026 batch — Limited seats available. Call now: 9876543210
+</div>
+
+<!-- HERO -->
+<div class="hero">
+  <div>
+    <div class="hero-tag">Lucknow's Most Trusted Institute</div>
+    <h1>Shape Your Future with <em>Expert Guidance</em></h1>
+    <p class="hero-sub">Join thousands of students who cracked IIT, NEET, and competitive exams with Sharma Classes — 15 years of proven results in Lucknow.</p>
+    <div class="hero-btns">
+      <a href="#courses" class="btn-primary">Explore Courses</a>
+      <a href="#results" class="btn-outline">See Our Results</a>
+    </div>
+  </div>
+  <div class="hero-stats">
+    <div class="stat-card"><div class="num">2,400+</div><div class="label">Students Enrolled This Year</div></div>
+    <div class="stat-card"><div class="num">94%</div><div class="label">Selection Rate in Top Colleges</div></div>
+    <div class="stat-card"><div class="num">15 yrs</div><div class="label">Trusted Excellence in Lucknow</div></div>
+  </div>
+</div>
+
+<!-- COURSES -->
+<section id="courses" class="courses-bg">
+  <div class="section-header">
+    <div class="section-tag">What We Offer</div>
+    <div class="section-title">Our Flagship Courses</div>
+    <div class="section-sub">Structured programs designed for maximum results, taught by IIT and AIIMS qualified faculty.</div>
+  </div>
+  <div class="courses-grid">
+    <div class="course-card">
+      <div class="course-top">
+        <div class="course-icon">⚛️</div>
+        <div class="course-name">JEE Main & Advanced</div>
+        <div class="course-desc">Complete Physics, Chemistry & Maths preparation for IIT entrance. 2-year and 1-year programs available.</div>
+      </div>
+      <div class="course-bottom">
+        <div class="course-fee">From <strong>₹85,000/yr</strong></div>
+        <div class="course-badge">Most Popular</div>
+      </div>
+    </div>
+    <div class="course-card">
+      <div class="course-top">
+        <div class="course-icon">🧬</div>
+        <div class="course-name">NEET UG Preparation</div>
+        <div class="course-desc">Biology, Physics & Chemistry for MBBS aspirants. Regular mock tests and AIIMS-pattern practice.</div>
+      </div>
+      <div class="course-bottom">
+        <div class="course-fee">From <strong>₹75,000/yr</strong></div>
+        <div class="course-badge">Top Results</div>
+      </div>
+    </div>
+    <div class="course-card">
+      <div class="course-top">
+        <div class="course-icon">📊</div>
+        <div class="course-name">Class 11 & 12 Boards</div>
+        <div class="course-desc">CBSE & UP Board coaching with concept clarity and exam-oriented practice for Science students.</div>
+      </div>
+      <div class="course-bottom">
+        <div class="course-fee">From <strong>₹45,000/yr</strong></div>
+        <div class="course-badge">New Batch</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- RESULTS -->
+<section id="results">
+  <div class="section-header">
+    <div class="section-tag">Our Track Record</div>
+    <div class="section-title">Numbers That Speak</div>
+    <div class="section-sub">Every year our students prove that the right guidance makes all the difference.</div>
+  </div>
+  <div class="results-grid">
+    <div class="result-box"><div class="result-num">318<sup>+</sup></div><div class="result-label">IIT Selections (2025)</div></div>
+    <div class="result-box"><div class="result-num">542<sup>+</sup></div><div class="result-label">NEET Qualifiers (2025)</div></div>
+    <div class="result-box"><div class="result-num">97<sup>%</sup></div><div class="result-label">Board Pass Rate</div></div>
+    <div class="result-box"><div class="result-num">15<sup>yrs</sup></div><div class="result-label">In Lucknow</div></div>
+  </div>
+</section>
+
+<!-- TESTIMONIALS -->
+<section class="testi-bg">
+  <div class="section-header">
+    <div class="section-tag">Student Stories</div>
+    <div class="section-title" style="color:white;">What Our Students Say</div>
+  </div>
+  <div class="testi-grid">
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <div class="testi-quote">"Sharma Classes changed everything for me. The faculty is genuinely invested in your success. I got AIR 847 in JEE Advanced — could not have done it without this institute."</div>
+      <div class="testi-author"><div class="testi-avatar">AK</div><div><div class="testi-name">Arjun Kumar</div><div class="testi-sub">IIT Bombay, CSE 2025</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <div class="testi-quote">"The NEET batch at Sharma Classes was incredibly well-structured. Daily tests, doubt sessions, and motivational support kept me on track throughout."</div>
+      <div class="testi-author"><div class="testi-avatar">PS</div><div><div class="testi-name">Priya Singh</div><div class="testi-sub">KGMU Lucknow, MBBS 2025</div></div></div>
+    </div>
+    <div class="testi-card">
+      <div class="stars">★★★★★</div>
+      <div class="testi-quote">"Joining Sharma Classes in Class 11 was the best decision of my life. The study material is comprehensive and the teachers explain concepts beautifully."</div>
+      <div class="testi-author"><div class="testi-avatar">RV</div><div><div class="testi-name">Rohit Verma</div><div class="testi-sub">IIT Kanpur, Mechanical 2025</div></div></div>
+    </div>
+  </div>
+</section>
+
+<!-- FACULTY -->
+<section id="faculty">
+  <div class="section-header">
+    <div class="section-tag">Expert Educators</div>
+    <div class="section-title">Our Faculty</div>
+    <div class="section-sub">Taught by IITians and doctors who know exactly what it takes to crack top entrances.</div>
+  </div>
+  <div class="faculty-grid">
+    <div class="faculty-card"><div class="faculty-img">RS</div><div class="faculty-name">Dr. Ramesh Sharma</div><div class="faculty-role">Physics — IIT Kanpur Alumni</div><div class="faculty-exp">18 years teaching experience</div></div>
+    <div class="faculty-card"><div class="faculty-img">MP</div><div class="faculty-name">Ms. Meena Pandey</div><div class="faculty-role">Biology — AIIMS Delhi Alumni</div><div class="faculty-exp">12 years | 600+ NEET selections</div></div>
+    <div class="faculty-card"><div class="faculty-img">AJ</div><div class="faculty-name">Mr. Anil Joshi</div><div class="faculty-role">Mathematics — IIT Delhi Alumni</div><div class="faculty-exp">15 years | JEE specialist</div></div>
+  </div>
+</section>
+
+<!-- CTA -->
+<div id="contact" class="cta-section">
+  <h2>Ready to Start Your Journey?</h2>
+  <p>Talk to our counsellors today. Free demo class available for all new students.</p>
+  <a href="tel:9876543210" class="btn-dark">Call: 98765 43210</a>
+</div>
+
+<!-- FOOTER -->
+<footer>
+  <div class="footer-grid">
+    <div>
+      <div class="footer-brand">Sharma Classes</div>
+      <div class="footer-tagline">Lucknow's premier coaching institute since 2010. Our mission is to make quality education accessible to every student who dares to dream big.</div>
+    </div>
+    <div class="footer-col">
+      <h4>Courses</h4>
+      <ul>
+        <li><a href="#">JEE Main & Advanced</a></li>
+        <li><a href="#">NEET UG</a></li>
+        <li><a href="#">Class 11 Boards</a></li>
+        <li><a href="#">Class 12 Boards</a></li>
+        <li><a href="#">Foundation (9–10)</a></li>
+      </ul>
+    </div>
+    <div class="footer-col">
+      <h4>Contact</h4>
+      <ul>
+        <li><a href="#">📍 Hazratganj, Lucknow</a></li>
+        <li><a href="#">📞 98765 43210</a></li>
+        <li><a href="#">✉ info@sharmaclasses.in</a></li>
+        <li><a href="#">Mon–Sat: 8am – 8pm</a></li>
+      </ul>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <span>© 2025 Sharma Classes. All rights reserved.</span>
+    <span>Website by Shivam — Freelance Web Developer, Lucknow</span>
+  </div>
+</footer>
+
+</body>
+</html>
